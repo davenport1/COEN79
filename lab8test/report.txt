@@ -1,0 +1,14 @@
+Lab Report Lab 8
+For : Krating Khemkhon 
+By  : Matthew Davenport
+
+Tests: 
+Copy Constructor tested with full and empty deques
+Assignment operator testing with full and empty deques
+Deques then outputted by testing the iterator 
+Iterator also tested with conditionals and the dereferencing operator
+pop_back and pop_front both tested as well as push_front and push_back
+Iterator tested on the copied and assigned deques to make sure front/back ptr was set correctly on copied and assigned deques
+
+Results: 
+All tests passed first try. 

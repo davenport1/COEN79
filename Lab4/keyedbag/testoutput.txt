@@ -1,0 +1,113 @@
+Matthew Davenport
+COEN79 Lab4 keyed_bag test output
+Tests were conducted for positive, negative and boundaries on functions of the namespace coen79_lab4
+All tests passed on the first round of testing 
+
+First, a bag was attempted to be made with a loop that would put the number 
+    of elements over the allowed elements of the bag    assertion statement caught it
+
+Next, a bag was attempted to be added to another bag that would put the number of elements
+    over the allowed elements in the bag Assertion statement also caught
+
+Next, various tests of the erase(void & bool), insert, has_key, get, size, count and 
+    hasDuplicateKey were made with positive and negative values and all passed
+
+included in these tests were tests with empty bags, and values that should fail 
+    Assertions caught all
+
++= operator also tested for boundarys, and positive values. 
+
+
+
+the following is an output of the modified keyed_bag_tester.cpp with the specified tests above
+
+*******************************************************************************************************
+*******************************************************************************************************
+
+OUTPUT:
+
+
+
+Inserting 5 with key "five".
+Inserting 3 with key "three".
+Inserting 1 with key "one".
+Value for "one": 1
+Value for "three": 3
+Value for "five": 5
+Has five: 1
+Has two: 0
+Bag size: 3
+Erasing "five".
+Bag size: 2
+Has five: 0
+Has three: 1
+Inserting -8 with key "neg_eight".
+Bag size: 3
+Has neg_eight: 1
+Value for "neg_eight": -8
+Number of 9's in the bag: 0
+Number of 1's in the bag: 1
+Inserting 1 with key "ONE".
+Number of 1's in the bag: 2
+Inserting 7 with key "seven".
+Inserting 9 with key "nine".
+Inserting 11 with key "eleven".
+Bag size: 7
+Erasing "eleven".
+Bag size: 6
+Erasing "ONE".
+Bag size: 5
+
+Begin student testing: 
+
+Passes test trying to insert too many elements and adding too many elements (see comments)
+Inserting 8 with key "eight".
+Inserting 2 with key "two".
+Inserting 9 with key "nine".
+Inserting 7 with key "seven".
+has eight: (should be true)1
+has four: (should be false)0
+whitespace: (should be false)0
+Inserting 1 with key "one".
+Has a duplicate? (should be true): 1
+Erasing "one".
+Erasing "seven".
+Erasing "nine".
+Has a duplicate? (should be false): 0
+Has a duplicate? (no elements in second bag): 0
+Inserting 2 with key "another_two".
+Number of 2's in the bag: 2
+Erasing "two".
+Number of 2's in the bag: 1
+
+Testing with two empty bags: 
+Has a duplicate? (should be false): 0
+Bag size: 0
+Has fakekey: 0
+Number of 5's in the bag: 0
+Inserting 1 with key "one".
+Inserting 2 with key "two".
+Bag size: 2
+If size = 0, kb5 has been erased: Bag size: 0
+kb2 has been concatenated to kb5 which is empty before += operator
+Has two (should be true): 1
+Passes test trying to get/erase element that does not exist
+
+End student testing
+
+Bag size: 7
+Has 1: 0
+Has one: 1
+Has turkey: 0
+Number of 1's in the bag: 1
+Number of 9's in the bag: 1
+Number of -5's in the bag: 0
+Value for "three": 3
+Erasing all of kb2.
+Bag size: 0
+Inserting 22 with key "I'm feelin'".
+Value for "I'm feelin'": 22
+
+
+*******************************************************************************************************
+*******************************************************************************************************

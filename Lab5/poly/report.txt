@@ -1,0 +1,15 @@
+
+Matthew Davenport
+Test done for: Krating 
+
+Added tests for: 
+    copy constructor
+    assignment operators
+    antiderivative
+    definite integral
+
+Tests were added to original tester cpp file
+
+Tests were made with positive and negative testing
+
+poly.cpp passed all tests on first iteration of testing

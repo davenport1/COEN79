@@ -1,0 +1,37 @@
+Lab Report for lab7
+
+Lab Report done by: Matthew Davenport
+                for: Krating Khemkhon
+
+Tester file: test.cpp
+
+All cases tested for positive negative and out of bounds results Passed
+except for the copy constructor on the first iteration 
+
+Tested reserving memory for additional companies in the database 
+Tested inserting companies into the database 
+    both new companies and companies already inserted 
+    passed all insertions 
+
+Tested inserting items into companies 
+    tested inserting to companies that did not exist in the database 
+    tested inserting duplicate items into companies 
+
+Tested erasing items from companies 
+    tested erasing items from companies that dont exist 
+    tested erasing items that dont exist in existing companies 
+
+Tested erasing companies 
+    erased companies that did and did not exist in the database 
+
+Copy constructor was fixed after first iteration 
+
+After this was fixed, tester file was combined with main file provided
+Dynamic memory failed and program crashed, unless the destructors
+for both the company and database classes were deleted 
+
+This indicates an issue with dynamic memory management
+The exact issue was not found. Program does not scale.
+
+Provided both the tester file, and the main file with tester code added to demonstrate
+    dynamic memory management failure. 

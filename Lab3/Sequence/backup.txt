@@ -1,0 +1,177 @@
+//FILE: sequence1.cpp
+//CLASS IMPLEMENTED: sequence (see sequence1.h for documentation)
+
+#include <assert.h>
+#include <iostream>
+#include "sequence1.h"
+
+namespace coen79_lab3 {
+    //CONSTRUCTOR
+    sequence::sequence() {
+        /**Postcondition: The sequence has been initialized as an empty sequence.**/
+        data;
+        used = 0;
+        current_index = 0;
+    }
+
+    //MODIFICATION MEMBER FUNCTIONS
+    void sequence::start() {
+        /** Poscondition: The iterator is reset to position 0; **/
+        current_index = 0;
+    }
+
+    void sequence::end() {
+        /** Poscondition: The iterator points to the last item in the sequence; **/
+        current_index = (used - 1);
+    }
+
+    void sequence::last() {
+        /**  Poscondition: The iterator is reset to CAPACITY - 1, 
+         *      regardless of the number of items in the sequence **/
+        current_index = (CAPACITY - 1);
+    }
+
+    void sequence::advance() {
+        /** Precondtion: isitem() returns true
+        *  Postcondition: The iterator's value is increased by 1, 
+        *       unless it is already at the end of the sequence. **/
+        assert(is_item());
+        if(current_index < (size() - 1)) {
+            ++current_index;
+        }
+    }
+
+    void sequence::retreat() {
+        /** Postcondition: The iterator's value is reduced by 1, 
+         *      unless it is already at the beginning of the sequence. **/
+        if(current_index > 0) {
+            --current_index;
+        }
+    }
+
+    void sequence::insert(const value_type& entry) {
+        /** Precondition: size() < CAPACITY
+        *      Postcondition: A new copy of entry has been inserted in the sequence
+        *      before the current item. If there was no current item, the new entry
+        *      has been inserted at the front. In either case, the new item is now the
+        *      current item of the sequence. **/
+        assert(size() < CAPACITY);
+        if(used == 0) {
+            data[current_index] = entry;
+        }
+        else {
+            //move all elements within the sequence to accomadate the
+            //new entry at the current item.
+            for(int i = size(); i >= current_index; --i) {
+                data[i+1] = data[i];
+            } //end for loop
+            //insert the new entry before the current item
+            data[current_index] = entry;
+        } //end if else
+        ++used;
+    }
+
+    void sequence::attach(const value_type& entry) {
+        /** Precondition: size() < CAPACITY
+        *      Postcondition: A new copy of entry has been inserted in the sequence
+        *      after the current item. If there was no current item, the new entry
+        *      has been attached to the end. In either case, the new item is now the
+        *      current item of the sequence. **/
+        assert(size() < CAPACITY);
+        if(used == 0) {
+            data[current_index] = entry;
+            ++used;
+        }
+        else {
+            for(int i = size(); i > current_index; --i) {
+                data[i+1] = data[i];
+            }
+            ++used;
+        }
+    }
+
+    void sequence::remove_current() {
+        /** Precondtion: isitem() returns true
+        *      Postcondition: The current item has been removed from the sequence,
+        *      and the item after this (if there is one) is now the current item. **/
+        assert(is_item());
+        for(int i = current_index; i < size(); ++i) {
+            data[i] = data[i+1];
+        }
+        --used;
+    }
+
+    void sequence::insert_front(const value_type& entry) {
+        /** Precondition: size() < CAPACITY
+        *      Postcondition: A new copy of entry has been inserted in the sequence
+        *      at the front. The new item is now the current item of the sequence. **/
+        assert(size() < CAPACITY); 
+        for(int i = size(); i > 0; --i) {
+            data[i + 1] = data[i];
+        }
+        data[0] = entry;
+    }
+
+    void sequence::attach_back(const value_type& entry) {
+        /** Precondition: size() < CAPACITY
+        *      Postcondition: A new copy of entry has been inserted in the sequence
+        *      at the back. The new item is now the current item of the sequence. **/
+        assert(size() < CAPACITY);
+    }
+
+    void sequence::remove_front() {
+        /** Precondtion: isitem() returns true
+        *      Postcondition: The item at the front of the sequence has been removed from the sequence,
+        *      and the current item points at the front of the sequence. **/
+       
+    }
+
+    void sequence::operator +=(const sequence& rhs) {
+        /** Postcondition: Adds the items of rhs to the lhs. Also returns a copy of lhs.**/
+    }
+
+    //CONSTANT MEMBER FUNCTIONS
+    sequence::size_type sequence::size() const {
+        /** Postcondition: The return value is the number of items in the sequence. **/
+        return(used);
+    }
+
+    bool sequence::is_item() const {
+        /** Postcondition: A true return value indicates that there is a valid
+        *     "current" item that may be retrieved by activating the current
+        *     member function (listed below). A false return value indicates that
+        *     there is no valid current item. **/
+        return(current_index < used);
+
+    }
+
+    sequence::value_type sequence::current() const {
+        /** Precondtion: isitem() returns true
+        *      Poscondition: Returns the item in the sequence at the current position of the iterator. **/
+        assert(is_item());
+        return(data[current_index]);
+    }
+
+    sequence::value_type sequence::operator[](int index) const {
+        /** Precondition: index < used
+        *     Postcondition: The item returned is the item stored at "index" **/
+    }
+
+    double sequence::mean() const {
+        /** Postcondition: The value returned is the mean of the values stored in the sequence. **/
+    }
+
+    double sequence::standardDeviation() const {
+        /**Postcondition: The value returned is the stadard deviation of the values stored in the sequence. **/
+    }
+
+    //NON-MEMBER FUNCTIONS FOR SEQUENCE CLASS
+    sequence operator +(const sequence& lhs, const sequence& rhs) {
+        /**Postcondition: The sequence that is returned contains all the
+        *     numbers of the sequences of lsh and rhs. **/
+    }
+
+    sequence::value_type summation(const sequence &s) {
+        /** Postcondition: The value returned is the summation of the values stored in the sequence s. **/
+    }
+}
